@@ -4,17 +4,12 @@ const cors = require("cors")
 
 const app = express()
 const corsOpts = {
-    origin: '*',
-  
-    methods: [
-      'GET',
-      'POST',
-    ],
-  
-    allowedHeaders: [
-      'Content-Type',
-    ],
-  };
+    origin: "*",
+
+    methods: ["GET", "POST"],
+
+    allowedHeaders: ["Content-Type"],
+}
 
 //Config
 
@@ -26,11 +21,10 @@ app.set("json spaces", 2)
 app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOpts))
 
 //Routes
 app.use(require("./routes/index"))
-app.use("/api/movies", require("./routes/movies"))
 
 //Starting the server
 

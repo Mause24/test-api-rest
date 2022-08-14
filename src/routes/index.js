@@ -7,4 +7,6 @@ router.get("/", (req, res) => {
     res.json({ greetings: "Hola gente" })
 })
 
+router.use("/api/movies", require("./movies"))
+
 module.exports = router
